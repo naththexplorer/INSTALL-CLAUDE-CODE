@@ -1,4 +1,3 @@
-````markdown
 # CARA INSTALL CLAUDE CODE (WINDOWS, MAC/LINUX)  
 _Melalui VS Code Extension dan CLI_
 
@@ -28,21 +27,20 @@ _Melalui VS Code Extension dan CLI_
 ### Windows
 ```bash
 npm install -g @anthropic-ai/claude-code
-````
+```
 
-**Jika muncul permission error:**
+**Jika muncul permission error:**  
 Buka **PowerShell sebagai Administrator**
 
-**Jika belum ada Git:**
+**Jika belum ada Git:**  
 Download [Git for Windows](https://git-scm.com/download/win)
 
 ### Mac / Linux
-
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
-**Jika muncul permission error:**
+**Jika muncul permission error:**  
 Tambahkan `sudo` sebelum perintah
 
 ---
@@ -52,7 +50,6 @@ Tambahkan `sudo` sebelum perintah
 ### A. Via Environment Variables (Direkomendasikan)
 
 **Windows (PowerShell/CMD)**
-
 ```powershell
 setx ANTHROPIC_AUTH_TOKEN "YOUR_API_KEY"
 setx ANTHROPIC_BASE_URL "https://api.minimax.io/anthropic"
@@ -61,14 +58,12 @@ setx ANTHROPIC_BASE_URL "https://api.minimax.io/anthropic"
 *Tutup terminal & buka lagi agar environment variables aktif*
 
 **Mac/Linux**
-
 ```bash
 export ANTHROPIC_AUTH_TOKEN="YOUR_API_KEY"
 export ANTHROPIC_BASE_URL="https://api.minimax.io/anthropic"
 ```
 
 **Permanen (opsional, Mac/Linux)**
-
 ```bash
 echo 'export ANTHROPIC_AUTH_TOKEN="YOUR_API_KEY"' >> ~/.bash_profile
 echo 'export ANTHROPIC_BASE_URL="https://api.minimax.io/anthropic"' >> ~/.bash_profile
@@ -78,7 +73,6 @@ source ~/.bash_profile
 ### B. Via `settings.json` (Optional)
 
 **Windows**
-
 ```powershell
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.claude"
 
@@ -94,7 +88,6 @@ New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.claude"
 ```
 
 **Mac / Linux**
-
 ```bash
 mkdir -p ~/.claude
 cat > ~/.claude/settings.json << 'EOF'
@@ -111,7 +104,6 @@ EOF
 ---
 
 ## ✅ Verifikasi Setup
-
 ```bash
 node --version
 claude --version
@@ -126,55 +118,54 @@ echo %ANTHROPIC_AUTH_TOKEN%      # Windows
 ## Cara Menggunakan
 
 ### CLI (Terminal)
-
 ```bash
 cd /path/to/project
 claude
 ```
 
 **Command utama:**
-
-* `/status` – cek model & config
-* `/cost` – lihat token usage
-* `/model` – ganti model
-* `/exit` – keluar
+- `/status` – cek model & config
+- `/cost` – lihat token usage
+- `/model` – ganti model
+- `/exit` – keluar
 
 ### VS Code Extension
-
-1. Install **Claude Code Extension** di VS Code
-2. Klik ikon **Claude** di sidebar → muncul panel chat
-3. Bisa pakai **environment variables** atau **settings.json**
+1. Install **Claude Code Extension** di VS Code  
+2. Klik ikon **Claude** di sidebar → muncul panel chat  
+3. Bisa pakai **environment variables** atau **settings.json**  
 4. Tidak perlu run `claude` di terminal saat pakai panel
 
 ---
 
 ## ⚠️ Troubleshooting Singkat
-
-* `npm not found` → install Node.js, restart terminal
-* `claude: command not found` → `npm install -g @anthropic-ai/claude-code`, restart terminal
-* Invalid API Key → cek typo, restart terminal, periksa `settings.json`
-* VS Code Extension tidak muncul → restart VS Code sepenuhnya
+- `npm not found` → install Node.js, restart terminal  
+- `claude: command not found` → `npm install -g @anthropic-ai/claude-code`, restart terminal  
+- Invalid API Key → cek typo, restart terminal, periksa `settings.json`  
+- VS Code Extension tidak muncul → restart VS Code sepenuhnya  
 
 > Untuk troubleshooting lengkap, buat file terpisah `troubleshooting.md`
 
 ---
 
 ## 🔒 Keamanan
-
-* Jangan share API Key
-* Jangan commit API Key ke Git (`.gitignore`)
-* Jangan screenshot terminal dengan API Key
-* Jika key ter-leak → hubungi seller untuk **revoke**
+- Jangan share API Key  
+- Jangan commit API Key ke Git (`.gitignore`)  
+- Jangan screenshot terminal dengan API Key  
+- Jika key ter-leak → hubungi seller untuk **revoke**
 
 ---
 
 ## Uninstall
-
 ```bash
 npm uninstall -g @anthropic-ai/claude-code
 ```
 
-**Mac/Linux:** `rm -rf ~/.claude`
-**Windows:** `Remove-Item $env:USERPROFILE\.claude -Recurse`
+**Mac/Linux:**  
+```bash
+rm -rf ~/.claude
+```
 
+**Windows:**  
+```powershell
+Remove-Item $env:USERPROFILE\.claude -Recurse
 ```
