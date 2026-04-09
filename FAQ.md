@@ -63,7 +63,7 @@ Tidak, butuh internet connection.
 
 ## Biaya & Quota
 
-**Berapa lama API $10 akan bertahan?**
+**Berapa lama API ini akan bertahan?**
 Estimasi berkisar antara 25-30 hari, chat seller untuk info lebih lanjut
 
 **Apa yang terjadi jika quota habis?**
