@@ -1,5 +1,3 @@
-Siap. Aku buatkan versi **GitHub Markdown** yang lebih rapi, pakai **bold**, **italic**, dan format heading terstruktur supaya mudah dibaca, tapi tetap ringkas dan jelas:
-
 ````markdown
 # CARA INSTALL CLAUDE CODE (WINDOWS, MAC/LINUX)  
 _Melalui VS Code Extension dan CLI_

@@ -64,13 +64,10 @@ Tidak, butuh internet connection.
 ## Biaya & Quota
 
 **Berapa lama API $10 akan bertahan?**
-Estimasi 1-4 minggu tergantung seberapa sering dipakai. Light usage (~1-2 chat/hari) bisa bertahan 1-2 bulan.
+Estimasi berkisar antara 25-30 hari, chat seller untuk info lebih lanjut
 
 **Apa yang terjadi jika quota habis?**
 API Key tidak bisa dipakai. Beli API Key baru dari seller.
-
-**Apakah ada unlimited plan?**
-Tanya seller. Paket ini adalah $10 dengan quota terbatas.
 
 **Bagaimana cara tracking usage?**
 Gunakan `/cost` command untuk lihat token breakdown.
