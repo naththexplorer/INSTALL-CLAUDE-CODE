@@ -1,0 +1,21 @@
+CARA SETUP OPENCLAW VIA MINIMAX 
+
+1. Login MiniMax (WAJIB DULU)
+
+Masuk ke
+MiniMax Platform
+https://platform.minimax.io/login
+
+masukkan credential berikut: (credential tanya admin)
+email: 
+password:
+
+Login pakai email + password (jangan Google/GitHub)
+Buka menu: Subscribe → Token Plan
+Copy API Key
+
+2. Buka dokumentasi resmi minimax mengenai cara setup openclaw
+LINK: https://platform.minimax.io/docs/token-plan/openclaw
+
+IKUTI PANDUAN RESMI MINIMAX SAMPAI SELESAI
+JIKA ADA YANG INGIN DITANYAKAN HUBUNGI ADMIN
