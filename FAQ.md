@@ -1,175 +1,242 @@
 # FAQ - Pertanyaan Umum
 
-## Instalasi
+## Cek Limit
 
-**Gimana cara install?**
-Ikuti SETUP.md atau jalankan: `npm install -g @anthropic-ai/claude-code`
+### Bagaimana cara cek sisa limit?
 
-**Node.js versi berapa yang dibutuhkan?**
-Minimal 18. Cek dengan: `node --version`
+Gunakan halaman cek limit:
 
-**Error "npm not found" apa solusinya?**
-Install Node.js dari nodejs.org, restart terminal.
-
-**Apakah harus install Git?**
-Hanya di Windows. Download dari git-scm.com/downloads/win
-
-**Berapa lama install-nya?**
-Kurang dari 5 menit tergantung kecepatan internet.
-
-## Setup API Key
-
-**API Key format seperti apa?**
-Dimulai dengan `sk-cp-` diikuti karakter panjang. Contoh: `sk-cp-xxxxxxxxxxxxx`
-
-**Berapa kali saya perlu setup API Key?**
-Cukup satu kali. Environment variables atau settings.json bersifat permanent.
-
-**Mana yang lebih baik, environment variables atau settings.json?**
-Sama saja. Pilih yang lebih mudah buat Anda.
-
-**Bagaimana jika saya ubah API Key?**
-Setup ulang dengan API Key baru. Tutup dan buka terminal baru.
-
-**Apakah aman simpan API Key di settings.json?**
-Lebih aman dari hardcode. Tapi jangan commit ke Git.
-
-## Penggunaan
-
-**Bagaimana cara start?**
-Terminal: `claude`
-VS Code: Klik icon Claude di sidebar
-
-**Apakah Claude bisa baca file saya?**
-Ya, Claude Code otomatis baca context dari file di folder project Anda.
-
-**Bagaimana cara lihat token usage?**
-Gunakan command `/cost` saat ChatCode running.
-
-**Berapa quota saya yang tersisa?**
-`/cost` hanya menampilkan token usage, bukan sisa uang. Estimasi saja dari token yang dipakai.
-
-**Command apa saja yang tersedia?**
-`/status` - cek config
-`/cost` - lihat usage
-`/model` - ganti model
-`/exit` - keluar
-
-**Apakah bisa menggunakan model lain?**
-Coba `/model` untuk lihat opsi. API ini optimized untuk Claude.
-
-**Bisa offline tidak?**
-Tidak, butuh internet connection.
-
-## Biaya & Quota
-
-**Berapa lama API ini akan bertahan?**
-Estimasi berkisar antara 25-30 hari, chat seller untuk info lebih lanjut
-
-**Apa yang terjadi jika quota habis?**
-API Key tidak bisa dipakai. Beli API Key baru dari seller.
-
-**Bagaimana cara tracking usage?**
-Gunakan `/cost` command untuk lihat token breakdown.
-
-## Keamanan
-
-**Apakah aman share API Key?**
-Tidak. Siapa pun yang punya API Key bisa pakai quota Anda.
-
-**Jika API Key ter-leak apa yang harus dilakukan?**
-Hubungi seller segera untuk revoke API Key lama dan dapat yang baru.
-
-**Bagaimana cara protect API Key?**
-- Jangan share dengan orang lain
-- Jangan commit ke Git
-- Jangan screenshot terminal dengan API Key
-- Gunakan environment variables atau settings.json
-
-**Apakah Claude Code mencuri data saya?**
-Tidak. Data cuma dikirim ke API Anthropic untuk processing, bukan disimpan.
-
-## Troubleshooting
-
-**"Invalid API Key" apa solusinya?**
-- Pastikan API Key benar (cek typo)
-- Pastikan environment variables ter-set
-- Buka terminal baru setelah setup
-- Jika pakai settings.json, cek path-nya benar
-
-**"command not found: claude"**
-- Jalankan: `npm install -g @anthropic-ai/claude-code`
-- Restart komputer jika perlu
-- Cek Node.js terinstall dengan: `node --version`
-
-**VS Code Extension tidak muncul**
-- Tutup VS Code sepenuhnya
-- Restart komputer
-- Buka VS Code lagi
-- Pastikan extension terinstall
-
-**"Git Bash required" (Windows)**
-- Install Git for Windows dari git-scm.com/downloads/win
-- Restart terminal
-
-**Koneksi lambat/timeout**
-- Cek internet connection
-- Restart terminal atau VS Code
-- Coba lagi nanti
-
-**Bagaimana cara uninstall?**
-```
-npm uninstall -g @anthropic-ai/claude-code
-rm -rf ~/.claude    # atau %USERPROFILE%\.claude di Windows
+```text
+https://ai.bluepack.my.id/usage
 ```
 
-## Kompatibilitas
-
-**Sistem operasi apa saja yang didukung?**
-Windows 10+, macOS 13+, Ubuntu 20.04+, Debian 10+, dan distro Linux lain.
-
-**Bisakah digunakan di server atau cloud?**
-Bisa, asal ada Node.js 18+ dan internet connection.
-
-**Apakah bisa di docker atau container?**
-Bisa, setup sama seperti di Linux biasa.
-
-**Bagaimana dengan WSL (Windows Subsystem for Linux)?**
-Bisa. Setup sama seperti Linux.
-
-## Fitur & Capabilities
-
-**Apa saja yang bisa dilakukan dengan Claude Code?**
-- Code review
-- Debugging
-- Generate code
-- Explain code
-- Brainstorming
-- Technical writing
-- Dan banyak lagi sesuai capability Claude
-
-**Apakah bisa automate task?**
-Bisa, tapi Claude Code yang ini lebih untuk interactive chat. Untuk automation yang proper, gunakan Claude API langsung.
-
-**Bagaimana jika saya punya file besar?**
-Claude Code bisa baca file besar, tapi ada context limit. Jika file terlalu besar, bagi jadi bagian-bagian.
-
-**Apakah bisa menggunakan plugin?**
-Tidak, Claude Code CLI tidak support plugin.
-
-## Support & Contact
-
-**Bagaimana jika masih ada pertanyaan?**
-- Baca SETUP.md lagi
-- Cari di FAQ ini
-- Hubungi seller
-
-**Apakah ada dokumentasi lebih lengkap?**
-Baca SETUP.md. Semua instruksi ada disana.
-
-**Bagaimana kalau saya ketemu bug?**
-Laporkan ke seller dengan detail tentang apa yang terjadi, OS Anda, dan step untuk reproduce.
+Masukkan data yang diminta pada halaman tersebut untuk melihat status pemakaian.
 
 ---
 
-Jika masih bingung, hubungi seller atau baca SETUP.md.
+## Instalasi
+
+### Gimana cara install Claude Code?
+
+Ikuti panduan di `SETUP.md`.
+
+Command utama:
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+### Node.js versi berapa yang dibutuhkan?
+
+Minimal Node.js 18.
+
+Cek versi Node.js:
+
+```bash
+node --version
+```
+
+### Error `npm not found` apa solusinya?
+
+Install Node.js dari website resmi Node.js, lalu restart terminal.
+
+```text
+https://nodejs.org
+```
+
+### Apakah harus install Git?
+
+Untuk Windows, disarankan install Git for Windows agar Claude Code bisa berjalan lebih lancar.
+
+Download Git:
+
+```text
+https://git-scm.com/downloads/win
+```
+
+### Berapa lama proses install?
+
+Biasanya kurang dari 5 menit, tergantung kecepatan internet dan kondisi perangkat.
+
+---
+
+## Setup API Key
+
+### API Key format seperti apa?
+
+API Key mengikuti format yang diberikan oleh seller/admin.
+
+Contoh format:
+
+```text
+bluepack_...
+```
+
+Jangan mengubah, memotong, atau menambahkan karakter pada API Key.
+
+### Berapa kali perlu setup API Key?
+
+Cukup satu kali selama API Key masih aktif.
+
+Jika API Key diganti, lakukan setup ulang dengan API Key baru.
+
+### Mana yang lebih baik, environment variables atau settings.json?
+
+Keduanya bisa digunakan.
+
+Rekomendasi paling mudah:
+
+- Windows: `settings.json`
+- Mac/Linux: environment variables atau `settings.json`
+
+### Apakah aman menyimpan API Key di settings.json?
+
+Aman selama file tersebut tidak dibagikan dan tidak di-commit ke GitHub.
+
+Jangan pernah share API Key ke orang lain.
+
+---
+
+## Penggunaan
+
+### Bagaimana cara start Claude Code?
+
+Melalui terminal:
+
+```bash
+claude
+```
+
+Melalui VS Code:
+
+- Buka VS Code
+- Buka project
+- Jalankan Claude Code dari extension/sidebar jika tersedia
+
+### Apakah Claude Code bisa membaca file project?
+
+Ya. Claude Code bisa membaca context dari file dalam folder project yang sedang dibuka atau dijalankan.
+
+### Command apa saja yang sering dipakai?
+
+```text
+/status  - cek status dan konfigurasi
+/cost    - lihat token usage
+/model   - cek atau ganti model jika tersedia
+/exit    - keluar
+```
+
+### Apakah bisa offline?
+
+Tidak. Claude Code membutuhkan koneksi internet.
+
+---
+
+## Prompt dan Request
+
+### Apa itu prompt?
+
+Prompt adalah perintah yang kamu kirim ke Claude Code melalui VS Code atau CLI/Terminal.
+
+### Apa itu request?
+
+Request adalah hitungan penggunaan API.
+
+Dalam pemakaian normal, 1 prompt biasanya dihitung sebagai 1 request.
+
+Namun untuk proses coding yang kompleks, 1 prompt bisa memakai beberapa request tambahan karena AI dapat membaca file, menganalisis kode, melakukan edit, retry, atau melanjutkan proses otomatis.
+
+Jadi limit paket dihitung berdasarkan request API, bukan jumlah chat.
+
+---
+
+## Paket dan Limit
+
+### Apa paket yang tersedia?
+
+Saat ini tersedia 1 paket utama dengan pilihan durasi:
+
+- 1 Hari
+- 7 Hari
+- 14 Hari
+- 21 Hari
+- 30 Hari
+
+### Berapa limit paket?
+
+Limit paket:
+
+```text
+220 request / 5 jam
+2.200 request / minggu
+```
+
+### Apakah limit reset setiap jam tertentu?
+
+Tidak.
+
+Limit menggunakan sistem rolling window.
+
+Artinya, kuota akan tersedia kembali secara bertahap mengikuti waktu pemakaian sebelumnya.
+
+### Apa yang terjadi jika limit habis?
+
+Jika limit 5 jam atau weekly limit habis, pengguna perlu menunggu kuota tersedia kembali.
+
+Jika ada kendala akses, hubungi admin untuk pengecekan.
+
+---
+
+## Model
+
+### Apakah bisa memilih model?
+
+Model mengikuti ketersediaan sistem.
+
+Jika command `/model` menampilkan pilihan, pengguna bisa mencoba memilih model dari daftar yang tersedia.
+
+### Apakah support semua model Anthropic?
+
+Layanan ini menggunakan format Claude Code compatible API.
+
+Model yang tersedia mengikuti konfigurasi sistem dari seller/admin.
+
+---
+
+## Keamanan
+
+### Apakah aman share API Key?
+
+Tidak.
+
+Siapa pun yang memiliki API Key dapat menggunakan kuota kamu.
+
+### Apa yang harus dilakukan jika API Key bocor?
+
+Hubungi admin/seller untuk pengecekan dan penggantian API Key jika diperlukan.
+
+### Cara menjaga API Key
+
+- Jangan share API Key ke orang lain
+- Jangan upload API Key ke GitHub
+- Jangan screenshot terminal yang menampilkan API Key
+- Simpan API Key hanya di environment variables atau settings.json
+
+---
+
+## Support
+
+### Bagaimana jika masih bingung?
+
+Baca `SETUP.md` terlebih dahulu.
+
+Jika masih ada kendala, hubungi seller/admin.
+
+### Apa yang harus dikirim saat melapor error?
+
+Kirim informasi berikut:
+
+- Sistem operasi yang digunakan
+- Screenshot error
+- Langkah yang sudah dicoba
+- Apakah menggunakan VS Code atau CLI/Terminal

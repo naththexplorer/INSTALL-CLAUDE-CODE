@@ -1,78 +1,136 @@
-# CARA INSTALL CLAUDE CODE (WINDOWS, MAC/LINUX)  
-_Melalui VS Code Extension dan CLI_
+# Cara Install Claude Code
 
----
+Panduan ini menjelaskan cara install dan setup Claude Code API Access untuk Windows, Mac, dan Linux.
 
-## Apa itu Claude Code
-**Claude Code** adalah tool dari **Anthropic** untuk chat dengan Claude AI. Ada dua cara pakai:
+Claude Code dapat digunakan melalui:
 
-**Fungsi utama:**
-- Chat dengan Claude AI
-- Code review & debugging
-- Diskusi project
-- Context-aware terhadap file project
-
----
+- CLI/Terminal
+- VS Code
 
 ## Syarat Awal
-- **Node.js 18+** → [nodejs.org](https://nodejs.org)  
-- **API Key** dari seller  
-- **Terminal** (CMD / PowerShell / Bash) atau **VS Code**  
-- **Koneksi Internet**
+
+Pastikan sudah memiliki:
+
+- Node.js 18+
+- API Key dari seller/admin
+- Koneksi internet
+- Terminal atau VS Code
+- Git for Windows khusus pengguna Windows
+
+Cek Node.js:
+
+```bash
+node --version
+```
+
+Jika belum ada Node.js, install dari:
+
+```text
+https://nodejs.org
+```
+
+Untuk Windows, disarankan install Git for Windows:
+
+```text
+https://git-scm.com/downloads/win
+```
 
 ---
 
 ## Install Claude Code
 
-### Windows
+Jalankan command berikut:
+
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
-**Jika muncul permission error:**  
-Buka **PowerShell sebagai Administrator**
+Cek instalasi:
 
-**Jika belum ada Git:**  
-Download [Git for Windows](https://git-scm.com/download/win)
-
-### Mac / Linux
 ```bash
-npm install -g @anthropic-ai/claude-code
+claude --version
 ```
 
-**Jika muncul permission error:**  
-Tambahkan `sudo` sebelum perintah
+Jika command `claude` belum terbaca, restart terminal atau komputer.
 
 ---
 
-## 🔑 Setup API Key
+## Setup API Key
 
-### A. Via Environment Variables (Direkomendasikan)
+Ada dua cara setup:
 
-**Windows (PowerShell/CMD)**
+- Environment Variables
+- settings.json
+
+Pilih salah satu.
+
+---
+
+## Opsi A - Environment Variables
+
+### Windows PowerShell
+
 ```powershell
 setx ANTHROPIC_AUTH_TOKEN "YOUR_API_KEY"
-setx ANTHROPIC_BASE_URL "https://api.minimax.io/anthropic"
+setx ANTHROPIC_BASE_URL "https://ai.bluepack.my.id/anthropic"
 ```
 
-*Tutup terminal & buka lagi agar environment variables aktif*
+Setelah menjalankan command, tutup terminal lalu buka kembali.
 
-**Mac/Linux**
+Cek hasilnya:
+
+```powershell
+echo $env:ANTHROPIC_AUTH_TOKEN
+echo $env:ANTHROPIC_BASE_URL
+```
+
+### Windows CMD
+
+Cek hasilnya:
+
+```cmd
+echo %ANTHROPIC_AUTH_TOKEN%
+echo %ANTHROPIC_BASE_URL%
+```
+
+### Mac/Linux
+
 ```bash
 export ANTHROPIC_AUTH_TOKEN="YOUR_API_KEY"
-export ANTHROPIC_BASE_URL="https://api.minimax.io/anthropic"
+export ANTHROPIC_BASE_URL="https://ai.bluepack.my.id/anthropic"
 ```
 
-**Permanen (opsional, Mac/Linux)**
+Agar permanen, tambahkan ke shell config.
+
+Untuk Bash:
+
 ```bash
-echo 'export ANTHROPIC_AUTH_TOKEN="YOUR_API_KEY"' >> ~/.bash_profile
-echo 'export ANTHROPIC_BASE_URL="https://api.minimax.io/anthropic"' >> ~/.bash_profile
-source ~/.bash_profile
+echo 'export ANTHROPIC_AUTH_TOKEN="YOUR_API_KEY"' >> ~/.bashrc
+echo 'export ANTHROPIC_BASE_URL="https://ai.bluepack.my.id/anthropic"' >> ~/.bashrc
+source ~/.bashrc
 ```
 
-### B. Via `settings.json` (Optional)
+Untuk Zsh:
 
-**Windows**
+```bash
+echo 'export ANTHROPIC_AUTH_TOKEN="YOUR_API_KEY"' >> ~/.zshrc
+echo 'export ANTHROPIC_BASE_URL="https://ai.bluepack.my.id/anthropic"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+Cek hasilnya:
+
+```bash
+echo $ANTHROPIC_AUTH_TOKEN
+echo $ANTHROPIC_BASE_URL
+```
+
+---
+
+## Opsi B - settings.json
+
+### Windows PowerShell
+
 ```powershell
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.claude"
 
@@ -80,92 +138,208 @@ New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.claude"
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "YOUR_API_KEY",
-    "ANTHROPIC_BASE_URL": "https://api.minimax.io/anthropic",
+    "ANTHROPIC_BASE_URL": "https://ai.bluepack.my.id/anthropic",
     "API_TIMEOUT_MS": "3000000"
   }
 }
 "@ | Out-File -FilePath "$env:USERPROFILE\.claude\settings.json" -Encoding utf8
 ```
 
-**Mac / Linux**
+### Mac/Linux
+
 ```bash
 mkdir -p ~/.claude
+
 cat > ~/.claude/settings.json << 'EOF'
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "YOUR_API_KEY",
-    "ANTHROPIC_BASE_URL": "https://api.minimax.io/anthropic",
+    "ANTHROPIC_BASE_URL": "https://ai.bluepack.my.id/anthropic",
     "API_TIMEOUT_MS": "3000000"
   }
 }
 EOF
 ```
 
+Ganti `YOUR_API_KEY` dengan API Key yang diberikan oleh seller/admin.
+
 ---
 
-## ✅ Verifikasi Setup
+## Verifikasi Setup
+
+Cek Node.js:
+
 ```bash
 node --version
-claude --version
-echo $ANTHROPIC_AUTH_TOKEN       # Mac/Linux
-echo %ANTHROPIC_AUTH_TOKEN%      # Windows
 ```
 
-*Jalankan `claude` di terminal dan pastikan muncul interface chat*
+Cek Claude Code:
+
+```bash
+claude --version
+```
+
+Cek API Key di Mac/Linux:
+
+```bash
+echo $ANTHROPIC_AUTH_TOKEN
+```
+
+Cek API Key di Windows CMD:
+
+```cmd
+echo %ANTHROPIC_AUTH_TOKEN%
+```
+
+Cek API Key di Windows PowerShell:
+
+```powershell
+echo $env:ANTHROPIC_AUTH_TOKEN
+```
 
 ---
 
-## Cara Menggunakan
+## Cara Menggunakan CLI
 
-### CLI (Terminal)
+Masuk ke folder project:
+
 ```bash
-cd /path/to/project
+cd path/to/project
+```
+
+Jalankan Claude Code:
+
+```bash
 claude
 ```
 
-**Command utama:**
-- `/status` – cek model & config
-- `/cost` – lihat token usage
-- `/model` – ganti model
-- `/exit` – keluar
+Command yang sering digunakan:
 
-### VS Code Extension
-1. Install **Claude Code Extension** di VS Code  
-2. Klik ikon **Claude** di sidebar → muncul panel chat  
-3. Bisa pakai **environment variables** atau **settings.json**  
-4. Tidak perlu run `claude` di terminal saat pakai panel
+```text
+/status  - cek status konfigurasi
+/cost    - lihat token usage
+/model   - cek atau ganti model jika tersedia
+/exit    - keluar
+```
 
 ---
 
-## ⚠️ Troubleshooting Singkat
-- `npm not found` → install Node.js, restart terminal  
-- `claude: command not found` → `npm install -g @anthropic-ai/claude-code`, restart terminal  
-- Invalid API Key → cek typo, restart terminal, periksa `settings.json`  
-- VS Code Extension tidak muncul → restart VS Code sepenuhnya  
+## Cara Menggunakan VS Code
 
-> Untuk troubleshooting lengkap, buat file terpisah `troubleshooting.md`
+1. Buka VS Code
+2. Buka folder project
+3. Pastikan Claude Code sudah terinstall
+4. Buka Claude Code dari extension/sidebar jika tersedia
+5. Gunakan API Key yang sudah diset melalui environment variables atau settings.json
 
 ---
 
-## 🔒 Keamanan
-- Jangan share API Key  
-- Jangan commit API Key ke Git (`.gitignore`)  
-- Jangan screenshot terminal dengan API Key  
-- Jika key ter-leak → hubungi seller untuk **revoke**
+## Cek Limit
+
+Cek usage dan sisa limit melalui:
+
+```text
+https://ai.bluepack.my.id/usage
+```
+
+Masukkan data yang diminta pada halaman tersebut untuk melihat status pemakaian.
+
+Limit paket:
+
+```text
+220 request / 5 jam
+2.200 request / minggu
+```
+
+---
+
+## Troubleshooting
+
+### `claude` tidak terbaca
+
+Coba:
+
+```bash
+claude --version
+```
+
+Jika tetap tidak terbaca:
+
+- Restart terminal
+- Restart komputer
+- Pastikan Node.js dan npm sudah terinstall
+- Pastikan global npm path sudah masuk PATH
+
+### `npm not found`
+
+Install Node.js dari:
+
+```text
+https://nodejs.org
+```
+
+Lalu restart terminal.
+
+### API Key tidak terbaca
+
+Pastikan API Key sudah benar.
+
+Jika menggunakan environment variables, tutup terminal lalu buka lagi.
+
+Jika menggunakan `settings.json`, pastikan file berada di lokasi:
+
+Windows:
+
+```text
+C:\Users\NAMA_USER\.claude\settings.json
+```
+
+Mac/Linux:
+
+```text
+~/.claude/settings.json
+```
+
+### Limit habis
+
+Cek usage:
+
+```text
+https://ai.bluepack.my.id/usage
+```
+
+Jika limit habis, tunggu kuota tersedia kembali mengikuti sistem rolling window.
+
+---
+
+## Keamanan
+
+Jangan share API Key ke orang lain.
+
+Jangan commit API Key ke GitHub.
+
+Jangan screenshot terminal yang menampilkan API Key.
+
+Jika API Key bocor, segera hubungi seller/admin.
 
 ---
 
 ## Uninstall
+
 ```bash
 npm uninstall -g @anthropic-ai/claude-code
 ```
 
-**Mac/Linux:**  
+Hapus konfigurasi Claude Code.
+
+Mac/Linux:
+
 ```bash
 rm -rf ~/.claude
 ```
 
-**Windows:**  
+Windows PowerShell:
+
 ```powershell
 Remove-Item $env:USERPROFILE\.claude -Recurse
 ```
